@@ -38,7 +38,7 @@ app.post('/create-contact',function(req,res)
             {   console.log('error in creating a contact');
                 return;
             }
-            console.log('*****',Contact);
+            console.log('*****',Contact); 
             return res.redirect('back');
         });
     });
