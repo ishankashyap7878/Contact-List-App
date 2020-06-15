@@ -1,7 +1,7 @@
 const express= require('express');
 const path= require('path');
 
-const port=9001;
+const port=4000;
 const db = require('./config/mongoose');
 const Contact=require('./models/contact'); 
 const app=express();
@@ -10,24 +10,6 @@ app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'));
 app.use(express.urlencoded());
 
-// var ContactList= [
-//     {
-//         name:'Ishan',
-//         number: '9876235614'
-//     },
-//     { 
-//         name:'Joseph',
-//         number:'8596745816'
-//     },
-//     {
-//         name:'Zayn',
-//         number: '7659425891'
-//     },
-//     {
-//         name:'Mike',
-//         number: '8650025791'
-//     }
-// ]
 app.get('/',function(req,res){
 
     Contact.find({},function(err,contacts){
@@ -37,7 +19,7 @@ app.get('/',function(req,res){
             return;
         }
         return res.render('home',{
-        title:"Contact List",
+        title:"My Contact List",
         Contact_List:contacts
     });
     });
